@@ -173,5 +173,5 @@ The Web3 Music Platform stands as a beacon for the future of the music industry.
 
 ## Support & Contributions
 
-For queries, feedback, or contributions, please reach out to our [support team](mailto:support@web3musicplatform.com). We believe in community-driven development and welcome any suggestions or pull requests.
+For queries, feedback, or contributions, please reach out to our [support team](mailto:alirazacodes.btc@gmail.com). We believe in community-driven development and welcome any suggestions or pull requests.
 
