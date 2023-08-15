@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>W3AR</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>W3AR</h1>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Artists</a>
+                <a href="#">Organizers</a>
+                <a href="#">Trending</a>
+                <a href="#">Wallet Connect</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="intro">
+                <div class="singer singer-left"></div>
+                <div class="singer singer-right"></div>
+                <h2>Revolutionizing the Music Industry</h2>
+                <p>Connecting artists/musicians and event organizers in a decentralized world.</p>
+                <button class="cta-button">Discover More</button>
+            </section>
+
+            <div class="section-container">
+                <section class="artists">
+                    <h2>Featured Musicians</h2>
+                    <div class="grid-container">
+                        <!-- Directly place the artist cards inside the grid-container -->
+                        <div class="artist-card">
+                            <img src="images/profile.png" alt="Artist Image">
+                            <h3>Rocky</h3>
+                            <p>The youngest artist</p>
+                        </div>
+                        <div class="artist-card">
+                            <img src="images/artist2.jpeg" alt="Artist Image">
+                            <h3>Ghost</h3>
+                            <p>Featured on Bloomberg</p>
+                        </div>
+                        <div class="artist-card">
+                            <img src="images/profile3.png" alt="Artist Image">
+                            <h3>Jasmine</h3>
+                            <p>Famous Sweet Singer</p>
+                        </div>
+                        <!-- ... More artist cards ... -->
+                    </div>
+                </section>
+            </div>
+
+            <div class="section-container">
+                <section class="organizers">
+                    <h2>Top Event Organizers</h2>
+                    <div class="grid-container">
+                        <!-- Multiple organizer cards for grid layout -->
+                        <div class="organizer-card">
+                            <img src="images/event-org.png" alt="Organizer Image" class="rounded">
+                            <h3>Infinity</h3>
+                            <p>Futuristic event Techy echoes</p>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="images/event-org2.png" alt="Organizer Image" class="rounded">
+                            <h3>Musi Echoes</h3>
+                            <p>Metropolitan music concert organizer</p>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="images/event-org4.png" alt="Organizer Image" class="rounded">
+                            <h3>Triangulades</h3>
+                            <p>Night events organizer</p>
+                        </div>
+
+                        <!-- ... More organizer cards ... -->
+                    </div>
+                </section>
+            </div>
+
+            <div class="section-container">
+                <section class="inscriptions">
+                    <h2>Top Artist Inscriptions</h2>
+                    <div class="grid-container">
+                        <!-- Multiple inscription cards for grid layout -->
+                        <div class="inscription-card">
+                            <img src="images/inscriptions.png" alt="Inscription Image" class="inscription-image">
+                        </div>
+                        <div class="inscription-card">
+                            <img src="images/inscriptions.png" alt="Inscription Image" class="inscription-image">
+                        </div>
+                        <div class="inscription-card">
+                            <img src="images/inscriptions.png" alt="Inscription Image" class="inscription-image">
+                        </div>
+                        <!-- ... More inscription cards ... -->
+                    </div>
+                </section>
+            </div>
+
+
+        </main>
+
+        <footer>
+            <div class="footer-nav">
+                <a href="#">About</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
+            <p>&copy; 2023 W3AR. All rights reserved.</p>
+        </footer>
+    </div>
+    <!-- Wallet Connect Modal -->
+    <!-- Wallet Connect Modal -->
+    <div class="modal" id="walletModal">
+        <div class="modal-content">
+            <h2>Connect Your Wallet</h2>
+
+            <!-- Wallet buttons with rectangular layout -->
+            <div class="wallet-button" data-wallet="metamask">
+                <img src="images/metamask.jpg" alt="MetaMask Logo">
+                <span>METAMASK</span>
+            </div>
+            <div class="wallet-button" data-wallet="hiro">
+                <img src="images/hiro.jpg" alt="Hiro Logo">
+                <span>HIRO</span>
+            </div>
+            <div class="wallet-button" data-wallet="phantom">
+                <img src="images/phantom.png" alt="Phantom Logo">
+                <span>PHANTOM</span>
+            </div>
+
+            <!-- Dropdown for downloading wallets -->
+            <div class="download-dropdown">
+                <button class="dropbtn">Download Wallets From Here</button>
+                <div class="dropdown-content">
+                    <a href="#">
+                        <img src="images/metamask.jpg" alt="MetaMask Logo">
+                        <span>MetaMask</span>
+                    </a>
+                    <a href="#">
+                        <img src="images/hiro.jpg" alt="Hiro Logo">
+                        <span>Hiro</span>
+                    </a>
+                    <a href="#">
+                        <img src="images/phantom.png" alt="Phantom Logo">
+                        <span>Phantom</span>
+                    </a>
+                </div>
+            </div>
+
+            <span class="close-modal">&times;</span>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

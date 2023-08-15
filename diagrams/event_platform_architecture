@@ -1,0 +1,25 @@
+digraph "Event Platform Architecture" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Event Platform Architecture" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"01ec79ed964447eea5b78ada8d23e717" -> ad9aaed4489a482bb875bb9d3338c75f [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"01ec79ed964447eea5b78ada8d23e717" -> "24ee69f7d1ef4bf9b487f5fb70e73298" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"24ee69f7d1ef4bf9b487f5fb70e73298" -> e51f97abf6a3438eadd6117606dd48d4 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"169be7e098114a07ba768455ba0b497d" -> d55426d86fc04637b487651bca46c911 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ad9aaed4489a482bb875bb9d3338c75f -> "79ee5af2a5224cdfb023a273d58c8c4a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ad9aaed4489a482bb875bb9d3338c75f -> b3204e9bf6274518be808ceeab50a0a8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph cluster_Frontend {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label=Frontend labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"01ec79ed964447eea5b78ada8d23e717" [label="Website - Nextjs"]
+		ad9aaed4489a482bb875bb9d3338c75f [label=Artist height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/client\user.png" shape=none]
+		"24ee69f7d1ef4bf9b487f5fb70e73298" [label=Public height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/client\users.png" shape=none]
+		e51f97abf6a3438eadd6117606dd48d4 [label=Dashboard height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/programming/framework\react.png" shape=none]
+		"169be7e098114a07ba768455ba0b497d" [label="Mobile App" height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/generic/device\mobile.png" shape=none]
+		d55426d86fc04637b487651bca46c911 [label=EventOrganizer height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/programming/framework\react.png" shape=none]
+		f6e155ef0b644cb5810f025f9895ac61 [label="Event Organizer" height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/client\user.png" shape=none]
+		"79ee5af2a5224cdfb023a273d58c8c4a" [label=Profile height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/compute\server.png" shape=none]
+		"50c2d77a27144fd88618e4afae865593" [label=Profile height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/compute\server.png" shape=none]
+		b3204e9bf6274518be808ceeab50a0a8 [label="Events handle" height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/compute\server.png" shape=none]
+		c6119064ead94448b0937e8c81812d8b [label="Events handle" height=1.9 image="C:\Users\root\AppData\Local\Programs\Python\Python310\lib\site-packages\resources/onprem/compute\server.png" shape=none]
+	}
+}

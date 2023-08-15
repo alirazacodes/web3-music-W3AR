@@ -1,0 +1,64 @@
+graph TD
+subgraph Frontend
+A[Website] --> B[Artist]
+A --> PB[Public]
+PB --> DA[Dashboard]
+C[Mobile App] --> D[Event Organizer]  
+D --> AB[Profile]
+D --> CD[Events handle]
+B --> AB
+B --> CD
+AB --> AP[API Client] 
+CD --> AP
+AP --> DA
+end
+
+subgraph Backend
+I[Load Balancer] --> J[Web Server 1]
+I --> L[Web Server 2] 
+J --> K[Node.js]
+L --> M[Node.js]  
+J --> N[Service Layer] 
+L --> N
+N --> O[Cache]
+N --> P[Database]
+end
+
+subgraph Blockchain
+Q[Stacks Network]
+R[Smart Contracts] --> Q
+S[IPFS] --> Q
+T[Oracle] --> Q
+TS[Bitcoin]
+end
+  
+AP --> I
+AP --> I
+N --> R  
+N --> S
+N --> T
+O --> P
+P --> S
+
+A --> R
+R --> U[Wallet]
+A --> R
+R --> A 
+R --> V[Reputation]
+V --> W[Profile]
+TS --> XY[Ordinals]
+XY --> X[Metadata] 
+X --> Y[Inscriptions]
+Y --> W
+
+subgraph Wallet Connect
+Z[Popup]
+AA[Metamask]
+BB[Hiro]
+CC[Phantom] 
+end
+
+A --> Z
+Z --> AA
+Z --> BB
+Z --> CC

@@ -1,0 +1,638 @@
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(45deg, royalblue, purple, black, royalblue, purple);
+    background-size: 200% 200%;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    animation: gradientShift 10s infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent);
+    animation: moveBubble 10s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes moveBubble {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+nav {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff;
+}
+
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Full-Width Section Styles */
+section {
+    padding: 4em 0;
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Changed from space-between for better spacing */
+    width: 90%; /* Adjust based on your preference */
+    max-width: 1200px; /* Prevents the content from stretching too wide on large screens */
+}
+
+.intro, .artist-card, .organizer-card, .inscription-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2em;
+    border-radius: 15px;
+    margin-bottom: 2em;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Card Styles */
+.artist-card, .organizer-card, .inscription-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2em;
+    border-radius: 15px;
+    margin: 2em 1em;
+    flex: 1;
+    max-width: 300px; /* Adjust based on your preference */
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s;
+}
+
+.artist-card:hover, .organizer-card:hover, .inscription-card:hover {
+    transform: translateY(-10px);
+}
+
+.artist-card img, .organizer-card img, .inscription-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+.footer-nav a {
+    display: inline-block;
+    transition: transform 0.3s, text-shadow 0.3s;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 2px solid white;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.footer-nav a:hover {
+    transform: scale(1.05);
+    border-color: #ff00ff;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 400px;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: white;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+/* Wallet buttons */
+.wallet-button {
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: transparent;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.wallet-button img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.wallet-button span {
+    text-transform: uppercase;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.wallet-button:hover {
+    transform: scale(1.05);
+}
+
+/* Dropdown styles */
+.download-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.dropbtn {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+.cta-button {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px; /* Rounded appearance */
+    transition: transform 0.3s, text-shadow 0.3s, border-color 0.3s, background-color 0.3s, color 0.3s;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    border-color: #ff00ff;
+    background-color: white;
+    color: black;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+}
+
+
+/*Profile*/
+.artist-profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin-top: 1px;
+}
+
+.profile-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2em;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    backdrop-filter: blur(5px);
+}
+
+.profile-card .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+    margin-bottom: 1em;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 2em;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.badges span {
+    background-color: #ff00ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff;
+}
+
+.badge-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: calc(50% - 10px);
+    transition: transform 0.3s;
+}
+
+.badge-card:hover {
+    transform: scale(1.05);
+}
+
+.badge-card img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+.inscriptions {
+    margin-bottom: 2em;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.inscriptions img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.more-options {
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff;
+    transition: opacity 0.3s;
+}
+
+.more-options:hover {
+    opacity: 0.8;
+}
+
+.organizer-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff;
+}
+
+.gig-details {
+    flex-grow: 2;
+    display: flex; /* To center the countdown vertically */
+    flex-direction: column;
+    justify-content: center; /* To center the countdown vertically */
+}
+
+.countdown {
+    font-size: 1.5em;
+    margin: 10px 0; 
+    color: white;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    gap: 10px;
+}
+
+.label {
+    margin-right: 15px; /* Adds space after each label */
+}
+
+.gig-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff00ff;
+    position: relative; /* To position dropdown content correctly */
+}
+
+main {
+    padding-top: 180px; /* This accounts for the fixed header's height. */
+    padding-bottom: 70px; /* This accounts for the fixed footer's height. */
+    z-index: 0;
+}
+
+
+/* Neon Heading */
+.neon-heading {
+    text-align: center;
+    font-size: 4em; 
+    color: white; 
+    letter-spacing: 0; /* Removed spacing */
+    margin-bottom: 10px;
+    margin-top: 1px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff; /* All letters glow */
+}
+
+/* Flickering effect on specific letters */
+.neon-heading span:nth-child(2), /* Second character */
+.neon-heading span:nth-child(5) { /* Fifth character */
+    animation: neonFlicker 1.5s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 100% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+    }
+    90% {
+        text-shadow: none;
+    }
+}
+
+
+/* Gig section */
+.gig-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; 
+    padding: 2em 0; /* Adding vertical padding to separate the gigs */
+}
+
+section, .gig-section {
+    min-height: auto; /* Remove minimum height restriction */
+    padding: 0; /* Remove any default padding */
+}
+
+.gig-card:first-of-type {
+    margin-top: 2em; 
+}
+
+.gig-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 1em 0; 
+    width: 80%;
+    backdrop-filter: blur(5px);
+    position: relative;
+}
+
+/* @keyframes neonFlicker {
+    0%, 100% {
+        color: #ff00ff;
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+    }
+    90% {
+        color: #ee22ee;
+        text-shadow: none;
+    }
+} */
+
+/* Dropdown */
+.gig-value:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2e2e2e;
+    min-width: 100px;
+    border-radius: 5px;
+    z-index: 1;
+    top: 25px;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+/* Neon Section */
+.neon-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Black background */
+}
+
+/* Neon Heading */
+.neon-heading {
+    text-align: center;
+    font-size: 10em; /* Starting font size, which can be adjusted using zoom */
+    color: white; 
+    cursor: pointer; /* Pointer to indicate clickable area */
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff; /* Neon pink glow for all letters */
+}
+
+/* Flickering effect for outline */
+.neon-heading span:nth-child(2), /* Second character */
+.neon-heading span:nth-child(4) { /* Fourth character */
+    animation: neonFlicker 1.5s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 100% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 2px #ff00ff, 0 0 4px #ff00ff, 0 0 6px #ff00ff, 0 0 8px #ff00ff, 0 0 10px #ff00ff;
+    }
+}
+
+.fullscreen-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s;
+    z-index: 9999;  /* To ensure it appears above other elements */
+}
+
+.fullscreen-btn:hover {
+    opacity: 1; /* Fully visible on hover */
+}

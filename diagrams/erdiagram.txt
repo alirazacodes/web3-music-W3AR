@@ -1,0 +1,150 @@
+erDiagram
+    Website {
+        string url
+        string framework
+    }
+    
+    Artist {
+        string name
+        int id
+    }
+    
+    Website }|--|| Artist : displays
+    
+    Public {
+        int id
+    }
+    
+    Dashboard {
+        int id
+    }
+    
+    Public ||--|{ Dashboard : accessible from
+    
+    MobileApp {
+        string name
+        string framework 
+    }
+    
+    EventOrganizer {
+        string name
+        int id
+    }
+    
+    MobileApp }|--|| EventOrganizer : uses
+    
+    EventOrganizer ||--|| Artist : manages
+    
+    Profile {
+        int id
+    }
+    
+    Events {
+        int id 
+    }
+    
+    Artist ||--o{ Profile : has
+    Artist ||--o{ Events : manages
+    
+    API_Client {
+        int id
+    }
+    
+    Dashboard ||--|| API_Client : uses
+    Profile ||--}| API_Client : accessed by
+    Events ||--}| API_Client : accessed by
+    
+    LoadBalancer {
+        int id
+    }
+    
+    WebServer {
+        string tech
+        int id 
+    }
+    
+    LoadBalancer ||--|| WebServer : balances
+    
+    ServiceLayer {
+        int id
+    }
+    
+    WebServer }|--|| ServiceLayer : hosts
+    
+    Cache {
+        int id
+    }
+    
+    Database { 
+        int id
+    }
+    
+    ServiceLayer ||--o{ Cache : uses
+    ServiceLayer ||--|{ Database : uses
+    
+    Blockchain {
+        string name
+    }
+    
+    SmartContracts {
+        int id
+    }
+    
+    IPFS {
+        int id
+    }
+    
+    Oracle { 
+        int id
+    }
+    
+    Bitcoin {
+        int id
+    }
+    
+    Blockchain ||--|| SmartContracts : has
+    Blockchain ||--|| IPFS : uses
+    Blockchain ||--|| Oracle : has
+    
+    API_Client ||--|{ LoadBalancer : uses
+    ServiceLayer ||--|| SmartContracts : uses 
+    ServiceLayer ||--|| IPFS : uses
+    ServiceLayer ||--|| Oracle : uses
+    Cache ||--|| Database : syncs
+    
+    Website }|--|| SmartContracts : interacts
+    SmartContracts }|--|| ArtistWallet : pays
+    SmartContracts ||--|| ReputationSystem : updates
+    ReputationSystem ||--|| ArtistProfile : updates
+    
+    Bitcoin ||--|| Ordinals : has
+    
+    Inscriptions {
+        int id
+    }
+    
+    Ordinals ||--|| Inscriptions : mints
+    
+    ArtistProfile ||--|| TopArtistInscriptions : displays
+    
+    WalletConnectPopup {
+        int id
+    }
+    
+    Metamask {
+        int id
+    }
+    
+    Hiro {
+        int id 
+    }
+    
+    Phantom {
+        int id
+    }
+    
+    WalletConnectPopup ||--|| Metamask : connects
+    WalletConnectPopup ||--|| Hiro : connects 
+    WalletConnectPopup ||--|| Phantom : connects
+    
+    Website ||--|{ WalletConnectPopup : pops up

@@ -1,0 +1,62 @@
+graph TD
+
+subgraph Frontend
+A[Website - Nextjs] -- Nextjs-React --> B[Artist]
+A[Website - Nextjs] --> PB[Public] --> DA[Dashboard]
+C[Mobile App] -- ReactNative --> D[EventOrganizer]
+D --> AB
+D --> CD
+B --> AB[Profile]
+B --> CD[Events handle]
+AB --> AP[API Client]
+CD --> AP[API Client]
+AP --> DA[Dashboard]
+
+end
+
+subgraph Backend  
+I[Load Balancer]
+J[Web Server1] --> K[Node.js]
+L[Web Server2] --> M[Node.js] 
+I --> J
+I --> L
+J --> N[Service Layer]
+L --> N
+N --> O[Cache]
+N --> P[Database]
+
+end
+
+subgraph Blockchain
+Q[Stacks Network]
+R[Smart Contracts] --> Q
+S[IPFS - GAIA] --> Q
+T[Oracle] --> Q
+TS[Bitcoin L1]
+end
+
+AP --> I
+AP --> I
+N --> R
+N --> S
+N --> T
+O --> P
+P --> S
+A -- "Apply for Gig" --> R
+R -- "Sign Availability" --> U(Artist's Wallet) 
+A -- "View Contract" --> R
+R -- "Check Attendance" --> A
+R -- "Modify Rating" --> V[Reputation System]
+V -- "Rating" --> W(Artist Profile)
+TS --> XY[Ordinals]
+XY --> X[Inscriptions Metadata]
+X --> Y[Top Artist Inscriptions] --> W(Artist Profile)
+
+subgraph Wallet Connect
+Z[Popup]
+Z -- "Connect" --> AA(Metamask)  
+Z -- "Connect" --> BB(Hiro)
+Z -- "Connect" --> CC(Phantom)
+end
+
+A -- "Wallet Connect" --> Z
