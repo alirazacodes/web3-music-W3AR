@@ -72,7 +72,7 @@ The Web3 Music Platform is set to redefine the music industry by creating a trus
 ### Components
 
 - **Stacks Network**: The foundational blockchain infrastructure.
-- **Smart Contracts**: Smart contract made on clarity, including nft, platform, rating, escrow smart contracts for the release or funds etc.
+- **Smart Contracts**: Smart contract made on clarity, including nft, platform, rating, escrow smart contracts for the release or funds etc. can be accessed [here](https://github.com/alirazacodes/web3-music-W3AR-contracts)
 - **IPFS - GAIA**: A distributed file system for decentralized data storage.
 - **Oracle**: Feeds external, real-world data to the platform's smart contracts.
 - **Artist's Wallet**: Digital wallet for artists to manage tokens or digital assets.
